@@ -1,0 +1,46 @@
+name: Test Suite
+
+on:
+    pull_request:
+        branches: [main]
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: '18'
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Run tests
+              run: npm run test:coverage
+
+            - name: Comment PR with coverage
+              uses: actions/github-script@v5
+              with:
+                  script: |
+                      const fs = require('fs');
+                      const coverage = JSON.parse(fs.readFileSync('./coverage/coverage-summary.json', 'utf8'));
+                      const total = coverage.total;
+
+                      const message = `
+                      📊 Test Coverage Report:
+                      - Statements: ${total.statements.pct}%
+                      - Branches: ${total.branches.pct}%
+                      - Functions: ${total.functions.pct}%
+                      - Lines: ${total.lines.pct}%
+                      `;
+
+                      await github.rest.issues.createComment({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        issue_number: context.issue.number,
+                        body: message
+                      });

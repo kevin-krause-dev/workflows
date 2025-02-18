@@ -1,0 +1,40 @@
+name: Build Check
+
+on:
+    pull_request:
+        branches: [main]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: '18'
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Build
+              run: npm run build
+
+            - name: Get build size
+              run: |
+                  CURRENT_SIZE=$(du -sh dist | cut -f1)
+                  echo "::set-output name=size::$CURRENT_SIZE"
+
+            - name: Comment PR
+              uses: actions/github-script@v5
+              with:
+                  script: |
+                      const size = process.env.size;
+                      await github.rest.issues.createComment({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        issue_number: context.issue.number,
+                        body: `📊 Build size: ${size}`
+                      });

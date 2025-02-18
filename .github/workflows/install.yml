@@ -1,0 +1,52 @@
+name: Package Installation Check
+
+on:
+    pull_request:
+        branches: [main]
+
+jobs:
+    install:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Get base branch package.json
+              uses: actions/checkout@v2
+              with:
+                  ref: ${{ github.base_ref }}
+                  path: base
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: '18'
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Compare dependencies
+              run: |
+                  BASE_DEPS=$(jq -S '.dependencies + .devDependencies' base/package.json)
+                  CURRENT_DEPS=$(jq -S '.dependencies + .devDependencies' package.json)
+
+                  if [ "$BASE_DEPS" != "$CURRENT_DEPS" ]; then
+                    echo "::set-output name=changes::true"
+                    DIFF=$(diff <(echo "$BASE_DEPS") <(echo "$CURRENT_DEPS") || true)
+                    echo "dependency_diff<<EOF" >> $GITHUB_ENV
+                    echo "$DIFF" >> $GITHUB_ENV
+                    echo "EOF" >> $GITHUB_ENV
+                  fi
+
+            - name: Comment PR
+              if: steps.compare.outputs.changes == 'true'
+              uses: actions/github-script@v5
+              with:
+                  script: |
+                      const diff = process.env.dependency_diff;
+                      await github.rest.issues.createComment({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        issue_number: context.issue.number,
+                        body: `📦 Dependencies changed in this PR:\n\n\`\`\`\n${diff}\n\`\`\``
+                      });
