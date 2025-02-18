@@ -1,4 +1,14 @@
-import { add, divide, multiply, subtract } from './calculator'
+import {
+    add,
+    divide,
+    factorial,
+    fibonacci,
+    isPrime,
+    multiply,
+    power,
+    squareRoot,
+    subtract
+} from './calculator'
 
 describe('Calculator', () => {
     describe('add', () => {
@@ -31,5 +41,40 @@ describe('divide', () => {
         expect(divide(6, 3)).toBe(2)
         expect(divide(0, 5)).toBe(0)
         expect(() => divide(6, 0)).toThrow('Cannot divide by zero')
+    })
+})
+
+describe('power', () => {
+    it('should raise a number to the power of another number correctly', () => {
+        expect(power(2, 3)).toBe(8)
+        expect(power(0, 5)).toBe(0)
+    })
+})
+
+describe('squareRoot', () => {
+    it('should return the square root of a number correctly', () => {
+        expect(squareRoot(4)).toBe(2)
+        expect(squareRoot(0)).toBe(0)
+    })
+})
+
+describe('factorial', () => {
+    it('should return the factorial of a number correctly', () => {
+        expect(factorial(5)).toBe(120)
+        expect(factorial(0)).toBe(1)
+    })
+})
+
+describe('fibonacci', () => {
+    it('should return the fibonacci of a number correctly', () => {
+        expect(fibonacci(5)).toBe(5)
+    })
+})
+
+describe('isPrime', () => {
+    it('should return true if a number is prime', () => {
+        expect(isPrime(2)).toBe(true)
+        expect(isPrime(3)).toBe(true)
+        expect(isPrime(4)).toBe(false)
     })
 })

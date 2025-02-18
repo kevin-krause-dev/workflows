@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">90% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>15/30</span>
+                <span class='fraction'>27/30</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">9.09% </span>
+                <span class="strong">72.72% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/11</span>
+                <span class='fraction'>8/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">44.44% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">51.72% </span>
+                <span class="strong">89.65% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>15/29</span>
+                <span class='fraction'>26/29</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -135,37 +135,37 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export function add(a: number, b: number): number {
     return a + b
@@ -186,38 +186,38 @@ export function divide(a: number, b: number): number {
     return a / b
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >power(</span>a: number, b: number): number {
-<span class="cstat-no" title="statement not covered" >    return Math.pow(a, b)</span>
+export function power(a: number, b: number): number {
+    return Math.pow(a, b)
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >squareRoot(</span>a: number): number {
-<span class="cstat-no" title="statement not covered" >    return Math.sqrt(a)</span>
+export function squareRoot(a: number): number {
+    return Math.sqrt(a)
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >factorial(</span>a: number): number {
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (a &lt; 0) {</span>
+export function factorial(a: number): number {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (a &lt; 0) {
 <span class="cstat-no" title="statement not covered" >        throw new Error('Factorial is not defined for negative numbers')</span>
     }
-<span class="cstat-no" title="statement not covered" >    return a === 0 ? 1 : a * factorial(a - 1)</span>
+    return a === 0 ? 1 : a * factorial(a - 1)
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >fibonacci(</span>a: number): number {
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (a &lt; 0) {</span>
+export function fibonacci(a: number): number {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (a &lt; 0) {
 <span class="cstat-no" title="statement not covered" >        throw new Error('Fibonacci is not defined for negative numbers')</span>
     }
-<span class="cstat-no" title="statement not covered" >    return a === 0 ? 0 : a === 1 ? 1 : fibonacci(a - 1) + fibonacci(a - 2)</span>
+    return a === 0 ? 0 : a === 1 ? 1 : fibonacci(a - 1) + fibonacci(a - 2)
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >isPrime(</span>a: number): boolean {
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (a &lt;= 1) {</span>
+export function isPrime(a: number): boolean {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (a &lt;= 1) {
 <span class="cstat-no" title="statement not covered" >        return false</span>
     }
-<span class="cstat-no" title="statement not covered" >    for (let i = <span class="cstat-no" title="statement not covered" >2;</span> i &lt;= Math.sqrt(a); i++) {</span>
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (a % i === 0) {</span>
-<span class="cstat-no" title="statement not covered" >            return false</span>
+    for (let i = 2; i &lt;= Math.sqrt(a); i++) {
+        if (a % i === 0) {
+            return false
         }
     }
-<span class="cstat-no" title="statement not covered" >    return true</span>
+    return true
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -226,7 +226,7 @@ export function <span class="fstat-no" title="function not covered" >isPrime(</s
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-02-18T11:01:45.013Z
+                at 2025-02-18T11:03:42.493Z
             </div>
         <script src="prettify.js"></script>
         <script>
