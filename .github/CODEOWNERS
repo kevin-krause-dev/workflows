@@ -1,18 +1,18 @@
 # Estes proprietários serão os proprietários padrão para tudo
 # no repositório. A menos que uma correspondência posterior tenha precedência,
-# @kevin-krause-dev e @kevin-krause serão solicitados para
+# @kevin-krause-dev serão solicitados para
 # revisão quando alguém abrir um pull request.
-*       @kevin-krause-dev @kevin-krause
+* @kevin-krause-dev
 
 # Proprietários para o diretório de workflows
-.github/workflows/    @kevin-krause-dev @kevin-krause
+.github/workflows/    @kevin-krause-dev 
 
 # Proprietários para o código fonte
-/src/                @kevin-krause-dev @kevin-krause
+/src/                @kevin-krause-dev 
 
 # Proprietários para testes
-*.test.ts            @kevin-krause-dev @kevin-krause
+*.test.ts            @kevin-krause-dev 
 
 # Proprietários para arquivos de configuração
-*.json               @kevin-krause-dev @kevin-krause
-*.yml                @kevin-krause-dev @kevin-krause 
+*.json               @kevin-krause-dev 
+*.yml                @kevin-krause-dev 
