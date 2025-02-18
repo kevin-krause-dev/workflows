@@ -20,13 +20,14 @@ jobs:
               run: npm install
 
             - name: Run tests
-              run: npm run test:coverage -- --coverageReporters="json-summary"
+              run: npm run test:coverage
 
             - name: Check coverage threshold
               run: |
-                  COVERAGE=$(jq -r '.total.statements.pct' coverage/coverage-final.json)
-                  if (( $(echo "$COVERAGE < 80" | bc -l) )); then
-                    echo "Code coverage is below 80% (Current: $COVERAGE%)"
+                  TOTAL_LINES=$(grep -A 4 "All files" coverage/lcov-report/index.html | grep "Lines" | sed 's/.*>\([0-9.]*\)%.*/\1/')
+                  echo "Current coverage: $TOTAL_LINES%"
+                  if (( $(echo "$TOTAL_LINES < 80" | bc -l) )); then
+                    echo "Code coverage is below 80%"
                     exit 1
                   fi
-                  echo "Code coverage is at $COVERAGE%"
+                  echo "Coverage check passed"
