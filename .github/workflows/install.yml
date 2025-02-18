@@ -37,16 +37,3 @@ jobs:
                     echo "$DIFF" >> $GITHUB_ENV
                     echo "EOF" >> $GITHUB_ENV
                   fi
-
-            - name: Comment PR
-              if: steps.compare.outputs.changes == 'true'
-              uses: actions/github-script@v5
-              with:
-                  script: |
-                      const diff = process.env.dependency_diff;
-                      await github.rest.issues.createComment({
-                        owner: context.repo.owner,
-                        repo: context.repo.repo,
-                        issue_number: context.issue.number,
-                        body: `📦 Dependencies changed in this PR:\n\n\`\`\`\n${diff}\n\`\`\``
-                      });

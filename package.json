@@ -5,8 +5,8 @@
     "main": "dist/index.js",
     "scripts": {
         "build": "tsc",
-        "test": "jest",
-        "test:coverage": "jest --coverage"
+        "test": "jest --config jest.config.js",
+        "test:coverage": "jest --coverage --config jest.config.js"
     },
     "dependencies": {},
     "devDependencies": {
