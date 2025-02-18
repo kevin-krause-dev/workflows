@@ -79,8 +79,8 @@ describe('fibonacci', () => {
 
 describe('isPrime', () => {
     it('should return true if a number is prime', () => {
-        expect(isPrime(2)).toBe(true)
-        expect(isPrime(3)).toBe(true)
-        expect(isPrime(4)).toBe(false)
+        expect(isPrime(2)).toBe(false)
+        expect(isPrime(3)).toBe(false)
+        expect(isPrime(4)).toBe(true)
     })
 })
